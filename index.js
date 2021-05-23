@@ -23,11 +23,13 @@ io.emit('connection', { someProperty: 'some value', otherProperty: 'other value'
 
 
 io.on('connection', (socket) => {
+  console.log('test1');
   socket.broadcast.emit('hi');
 });
 
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
+    console.log('test2');
     io.emit('chat message', msg);
   });
 });
